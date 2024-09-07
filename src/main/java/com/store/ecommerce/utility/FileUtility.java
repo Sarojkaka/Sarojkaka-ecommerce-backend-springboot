@@ -25,7 +25,7 @@ public class FileUtility {
             String fileName = randomID.concat(originalFilename.substring(originalFilename.lastIndexOf(".")));
             // Full path where the image will be stored
             String filePath = imagePath + File.separator + fileName;
-
+            logger.info("Saving image to: {}", filePath);
             // Create the directory if it doesn't exist
             File directory = new File(imagePath);
             if (!directory.exists()) {
@@ -36,7 +36,8 @@ public class FileUtility {
             Files.copy(image.getInputStream(), Paths.get(filePath));
 
             logger.info("Image saved successfully: {}", fileName);
-            return fileName;  // Return the file name to store in the product entity
+            // Return the file name for URL, using forward slashes for URLs
+            return fileName.replace("\\", "/");  // Normalize path to use forward slashes
         } catch (IOException e) {
             logger.error("Error saving image: {}", e.getMessage());
             throw new RuntimeException("Failed to save image", e);

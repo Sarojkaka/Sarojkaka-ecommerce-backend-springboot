@@ -108,6 +108,8 @@ public class ProductServiceImpl implements ProductService {
                 .collect(Collectors.toList());
     }
 
+
+
     @Override
     public ProductDTO getProductById(Long id) {
         logger.info("Fetching product by ID: {}", id);

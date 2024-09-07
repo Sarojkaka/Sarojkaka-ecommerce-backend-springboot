@@ -15,10 +15,13 @@ import com.store.ecommerce.entity.Category;
             productDTO.setDescription(product.getDescription());
             productDTO.setDate(product.getDate());
             productDTO.setImagePath(product.getImagePath());
-
+            
+            // Handle category mapping
             if (product.getCategory() != null) {
                 productDTO.setCategoryId(product.getCategory().getCategoryId());
                 productDTO.setCategoryName(product.getCategory().getCategoryName());
+            } else {
+                productDTO.setCategoryName("No Category");
             }
 
             return productDTO;
