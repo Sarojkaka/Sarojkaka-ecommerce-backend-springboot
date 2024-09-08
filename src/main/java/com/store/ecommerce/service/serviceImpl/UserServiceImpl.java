@@ -1,13 +1,10 @@
 package com.store.ecommerce.service.serviceImpl;
 
 import com.store.ecommerce.dto.UserDTO;
-import com.store.ecommerce.entity.Category;
 import com.store.ecommerce.entity.User;
 import com.store.ecommerce.repository.UserRepository;
 import com.store.ecommerce.service.UserService;
-import com.store.ecommerce.utility.CategoryConverter;
 import com.store.ecommerce.utility.UserConverter;
-import jakarta.transaction.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
